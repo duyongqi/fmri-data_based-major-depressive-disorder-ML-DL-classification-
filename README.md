@@ -1,4 +1,4 @@
-# fmri-data_based-major-depressive-disorder-ML-DL-classification
+# fmri data_based MDD classification
 By organizing the pre-processed fmri data into the corresponding file structure,data preparation, data split, model training and result visualization will be implemented automatically.
 ## Content
 - [Usage](#usage)

@@ -74,15 +74,13 @@ By organizing the pre-processed data into the corresponding grid file structure,
 
 ## 代码用法
 
-''' 
+```
 python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL
-'''
+```
 
-'''
+```
 usage: main.py [-h] [--threshold THRESHOLD] [--atlas ATLAS] {SVM,LSTM,oLSTM} {DFC,SFC} hc mdd 
-'''
 
-'''
 预处理之后数据的抑郁症诊断，可以选择三种方法，一种是DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM
 
 positional arguments:
@@ -97,7 +95,7 @@ optional arguments:
                         t test的阈值
   --atlas ATLAS, -a ATLAS
                         选择使用的分割图，注意要和输入的对应的地址中数据使用的地址一致，默认是AAL90
-'''
+```
 
 # Ref_paper
 - [Paper_ref](https://www.frontiersin.org/articles/10.3389/fninf.2020.00025/full)[^1]

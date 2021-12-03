@@ -90,14 +90,14 @@
 
 ## 代码用法:
 
-```
+```python
 python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL
 ```
 
 <details><summary>代码输入参数说明</summary>
 <p>
 
-```
+```python
 usage: main.py [-h] [--threshold THRESHOLD] [--atlas ATLAS] {SVM,LSTM,oLSTM} {DFC,SFC} hc mdd 
 
 预处理之后数据的抑郁症诊断，可以选择三种方法，一种是DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM
@@ -124,8 +124,8 @@ optional arguments:
 # 注意事项：
 1. main.py中实现了多进程，用了15核的CPU，在运行之前请将其更改为合适的个数，代码在
 
-```
-p = Pool(15)
+```python
+p = Pool(processes=15)
 ```
 2. LSTM方法的实现还未上传
 3. 输入文件目录结构一定要按照上文描述组织

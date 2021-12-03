@@ -11,14 +11,14 @@
 
 # 原理：
 - SFC数据准备
-![SFC](image\SFC_data_preparation.jpg)
+![SFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-\image\SFC_data_preparation.jpg)
 - DFC数据准备
-![DFC](image\DFC_data_preparation.jpg)
+![DFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-\image\DFC_data_preparation.jpg)
 - 分类器
-![SVM](image\model_pipeline.jpg)
+![SVM](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-\image\model_pipeline.jpg)
 - 选择特征的生理解释
-![anatomical](image\anatomical_1.jpg)
-![anatomical](image\anatomical_2.jpg)
+![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-\image\anatomical_1.jpg)
+![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-\image\anatomical_2.jpg)
 - 选择特征的可视化
 用[BrainNet Viewer](https://www.nitrc.org/projects/bnv/)工具进行选择出来的特征的可视化
 

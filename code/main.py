@@ -93,7 +93,7 @@ def t_test_parallel(matrix_one, matrix_two):
 
 def find_file(direct, subdirect, filename, suffix):
     '''
-    寻找相应目录,目录转换,可以随便赋值试一试这个函数得作用
+    寻找相应目录,目录转换,可以
     '''
     root, name = os.path.split(direct)
     name_direct = ''.join((name, subdirect))
@@ -268,7 +268,7 @@ def load_SVM_data(dir_hc, dir_mdd, fctype, anatomical_index):
     return x_train, y_train, x_test, y_test
     
 def main():
-    """D:\Users\Du\anaconda3\envs\ml
+    """
     主函数，三种方法任选一种执行
     :return:
     """

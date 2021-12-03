@@ -21,7 +21,12 @@
 通过将预处理后的数据组织到相应的网格文件结构中，实现数据的集成、数据的自动编制、数据的自动划分、模型的训练和模型的可视化绘制
 
 ## 输入文件格式：
-对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割），用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取，得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
+对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割）；
+
+用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取；
+
+得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
+
 <details><summary>文件结构</summary>
 <p>
 

@@ -3,26 +3,17 @@
 
 # Content:
 - [Usage](#Usage)
+  - [输入文件格式](##输入文件格式)
+  - [代码格式](##代码结构)
+  - [代码用法](##代码用法)  
+- [原理](#原理)
+- [注意事项](#注意事项)
+
 - [Ref-paper](#Ref_paper)
 
 # Usage:
 基于fmri数据的ml&amp;dl方法疾病分类
 通过将预处理后的数据组织到相应的网格文件结构中，实现数据的集成、数据的自动编制、数据的自动划分、模型的训练和模型的可视化绘制
-
-# 原理：
-- SFC数据准备
-![SFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/SFC_data_preparation.jpg)
-- DFC数据准备
-![DFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/DFC_data_preparation.jpg)
-- 分类器
-![SVM](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/model_pipeline.jpg)
-- 选择特征的生理解释
-![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/anatomical_1.jpg)
-![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/anatomical_2.jpg)
-- 选择特征的可视化
-用[BrainNet Viewer](https://www.nitrc.org/projects/bnv/)工具进行选择出来的特征的可视化
-- 代码框架
-![pipeline](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/pipeline.svg)
 
 ## 输入文件格式：
 对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割），用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取，得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
@@ -129,7 +120,7 @@ optional arguments:
 </p>
 </details>
 
-# 中间文件
+## 中间文件
 <!-- ```diff -->
 
 参考[原理](#原理)理解
@@ -151,6 +142,22 @@ optional arguments:
 一类人的DFC矩阵，每一个人的DFC中的每一个FC拉伸之后，将他们进行堆叠成一个二维矩阵，一个维度是时间；接着将所有人的矩阵堆叠在一起得到一个三维矩阵，一个维度是人编号，一个维度是时间，还有一个维度是拉伸后的FC
 
 <!-- ``` -->
+
+# 原理：
+- SFC数据准备
+![SFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/SFC_data_preparation.jpg)
+- DFC数据准备
+![DFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/DFC_data_preparation.jpg)
+- 分类器
+![SVM](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/model_pipeline.jpg)
+- 选择特征的生理解释
+![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/anatomical_1.jpg)
+![anatomical](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/anatomical_2.jpg)
+- 选择特征的可视化
+用[BrainNet Viewer](https://www.nitrc.org/projects/bnv/)工具进行选择出来的特征的可视化
+- 代码框架
+![pipeline](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/pipeline.svg)
+
 
 # 注意事项：
 1. main.py中实现了多进程，用了15核的CPU，在运行之前请将其更改为合适的个数，代码在

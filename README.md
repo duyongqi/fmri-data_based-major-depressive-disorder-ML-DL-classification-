@@ -8,6 +8,8 @@ a fmri_data based disease classification  using ML&amp;DL methods
 By organizing the pre-processed data into the corresponding grid file structure, it can be integrated, automated data preparation, data division, model training and visual drawing of model 
 ## 输入文件格式：
 对原始fMRI数据用DPABI工具进行处理后（包括脑区分割），用GRENTA工具进行SFC和DFC的提取，得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
+<details><summary>CLICK ME</summary>
+<p>
 
 --SFC
 
@@ -53,6 +55,8 @@ By organizing the pre-processed data into the corresponding grid file structure,
 
   ...
 
+</p>
+</details>
 
 ## 代码结构
 - anatomical.py
@@ -69,9 +73,15 @@ By organizing the pre-processed data into the corresponding grid file structure,
 进行自动特征整合，t test特征选择，SVM-RFE特征选择，SVM分类, Gridsearch寻找最佳参数，以及特征的生理解释的自动对应输出，测试结果的AUC图像的自动绘制。
 
 ## 代码用法
-''' python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL'''
-'''usage: main.py [-h] [--threshold THRESHOLD] [--atlas ATLAS] {SVM,LSTM,oLSTM} {DFC,SFC} hc mdd      
+''' 
+python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL
+'''
 
+'''
+usage: main.py [-h] [--threshold THRESHOLD] [--atlas ATLAS] {SVM,LSTM,oLSTM} {DFC,SFC} hc mdd 
+'''
+
+'''
 预处理之后数据的抑郁症诊断，可以选择三种方法，一种是DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM
 
 positional arguments:
@@ -93,4 +103,5 @@ optional arguments:
 
 ### IF THIS IS USEFUL FOR YOU, STAR FOR ME PLS! THKS!! :satisfied:
 
-[^1]: Castellazzi G, Cuzzoni M G, Cotta Ramusino M, et al. A machine learning approach for the differential diagnosis of Alzheimer and Vascular Dementia Fed by MRI selected features[J]. Frontiers in neuroinformatics, 2020, 14: 25.
+[^1]: 
+Castellazzi, Gloria, et al. "A machine learning approach for the differential diagnosis of Alzheimer and Vascular Dementia Fed by MRI selected features." Frontiers in neuroinformatics 14 (2020): 25.

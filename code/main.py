@@ -93,7 +93,7 @@ def t_test_parallel(matrix_one, matrix_two):
 
 def find_file(direct, subdirect, filename, suffix):
     '''
-    寻找相应目录,目录转换,可以
+    寻找相应目录,目录转换,可以随便给一些输入试试
     '''
     root, name = os.path.split(direct)
     name_direct = ''.join((name, subdirect))

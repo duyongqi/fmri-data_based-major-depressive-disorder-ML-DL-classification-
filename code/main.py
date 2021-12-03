@@ -93,7 +93,7 @@ def t_test_parallel(matrix_one, matrix_two):
 
 def find_file(direct, subdirect, filename, suffix):
     '''
-    寻找相应目录,目录转换
+    寻找相应目录,目录转换,可以随便赋值试一试这个函数得作用
     '''
     root, name = os.path.split(direct)
     name_direct = ''.join((name, subdirect))
@@ -225,37 +225,6 @@ def SVM_data_prepare(dir_hc, dir_mdd, fctype, anatomical_index):
         print('直接load失败，开始下一级load')
         data_hc = data_prepare(dir_hc, fctype, anatomical_index, 'HC')
         data_mdd = data_prepare(dir_mdd, fctype, anatomical_index, 'MDD')
-        # file_dir_hc = find_file(dir_hc, '_splice_along_time', 't_test', '.pkl')
-        # file_dir_mdd = find_file(dir_mdd, '_splice_along_time', 't_test', '.pkl')
-        # if os.path.exists(file_dir_hc) and os.path.exists(file_dir_mdd):
-        #     data_hc = pd.read_pickle(file_dir_hc)
-        #     print('hc加载完毕')
-        #     data_mdd = pd.read_pickle(file_dir_mdd)
-        #     print('mdd加载完毕')
-        # else:
-        #     # 目录转换
-        #     file_dir_hc = find_file(dir_hc, '_splice_along_time', 't_test', '')
-        #     file_dir_mdd = find_file(dir_mdd, '_splice_along_time', 't_test', '')
-        #     # 判断数据文件是否已经存在（是否已经进行过转换）
-        #     if os.path.exists(file_dir_hc) and os.path.exists(file_dir_mdd):
-        #         pass
-        #     else:
-        #         # 执行转换
-        #         dfc2vector_parallel(dir_hc, fctype)
-        #         dfc2vector_parallel(dir_mdd, fctype)
-        #     # load 矩阵
-        #     data_hc = matrix2dataframe(file_dir_hc, anatomical_index)
-        #     data_mdd = matrix2dataframe(file_dir_mdd, anatomical_index)
-        # # print(data_hc.head(5))
-        # # scikitlearn
-        # #index合并
-        # data_hc.columns = data_hc.columns.map("-".join)
-        # data_mdd.columns = data_mdd.columns.map("-".join)
-        # # print(data_hc.head(5))
-        # # 新增一列标签列
-        # data_hc = data_hc.assign(label=1)
-        # data_mdd = data_mdd.assign(label=0)
-        # print(data_hc)
         #合并hc和mdd
         final_data = pd.concat([data_hc, data_mdd])
         # print(final_data)
@@ -267,33 +236,8 @@ def SVM_data_prepare(dir_hc, dir_mdd, fctype, anatomical_index):
                                              'final_data_svm.pkl'))
     print(final_data)
     #划分特征和label
-    # x_features = final_data.iloc[:, 0:-1]
-    # print(x_features.head(5))
-    # y_label = final_data.iloc[:, -1]
-    # print(y_label.head(5))
-    # 划分训练集和测试集
-    # for train_index, test_index in StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42).split(x_features, y_label):
-    #     X_train, X_test = x_features.iloc[train_index, :], x_features.iloc[test_index, :]
-    #     y_train, y_test = y_label.iloc[train_index, :], y_label.iloc[test_index, :]
     train, test = train_test_split(final_data, test_size=0.2, random_state=10)
     return train, test
-    # 构建pipeline
-    # from sklearn import svm, datasets
-    # iris = datasets.load_iris()
-    # classify = SVC()
-    # estimator_rfe = RFE(classify, step=0.05)
-    # pipe = make_pipeline(estimator_rfe, classify)
-    # # gridsearch
-    # tuned_parameters = {'estimator_rfe__estimator__C':[0.1, 1, 10, 100, 1000],
-    #                     'estimator_rfe__estimator__gamma':[0.0001, 0.001, 0.01, 0.1, 1],                        
-    #                     'estimator_rfe__n_features_to_select':[50, 100, 150, 200, 250, 300]
-    #                     }
-    # clf = GridSearchCV(
-    #     pipe, tuned_parameters, scoring='roc_auc')
-    # clf.fit(iris.data, iris.target)
-    # clf.fit(X_train, y_train)
-    # 验证得到分类结果和参数选择
-    # 可视化结果和参数选择
 
 def load_SVM_data(dir_hc, dir_mdd, fctype, anatomical_index):
     #找到对应的存储训练数据和测试数据的文件夹
@@ -324,15 +268,15 @@ def load_SVM_data(dir_hc, dir_mdd, fctype, anatomical_index):
     return x_train, y_train, x_test, y_test
     
 def main():
-    """
+    """D:\Users\Du\anaconda3\envs\ml
     主函数，三种方法任选一种执行
     :return:
     """
     parser = argparse.ArgumentParser(description='预处理之后数据的抑郁症诊断，可以选择三种方法，一种是DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM')
     parser.add_argument('method', choices=['SVM', 'LSTM', 'oLSTM'],help='分类方法类别')
     parser.add_argument('fctype', choices=['DFC', 'SFC'], help='功能连接类别')
-    parser.add_argument('hc', help='正常组DFC目录')
-    parser.add_argument('mdd', help='MDD组DFC目录')
+    parser.add_argument('hc', help='正常组FC目录')
+    parser.add_argument('mdd', help='MDD组FC目录')
     parser.add_argument('--threshold', '-t', help='t test的阈值', type=float)
     parser.add_argument('--atlas', '-a', default='AAL90', help='选择使用的分割图，注意要和输入的对应的地址中数据使用的地址一致，默认是AAL90')
     args = parser.parse_args()
@@ -358,7 +302,7 @@ def main():
             timepoint = 125
         else:
             timepoint = 1
-        # 释奠奠的个数，为了获取拉伸拼接后的长度
+        # 时间点的个数，为了获取拉伸拼接后的长度
         index = np.arange(len(feature_anatomical)*timepoint).reshape(1, -1)
         t_test_index = clf.best_estimator_.steps[0][1].transform(index)
         feature_rank = np.array(clf.best_estimator_.steps[1][1].ranking_)
@@ -383,6 +327,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #调试用
     # a, b, feature_index = t_test("/data/upload/duyongqi/mdd_prediction_brainnetcome/HC_DFC", "/data/upload/duyongqi/mdd_prediction_brainnetcome/MDD_DFC", 0.001, 'DFC')
     # feature_anatomical = anatomical_vector_generator('AAL90')
     # feature_index = feature_index % len(feature_anatomical)

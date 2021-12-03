@@ -92,7 +92,7 @@
 ## 代码用法:
 
 ```python
-python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL
+python main.py SVM sfc "SFC_Data\HC\HC_Data" "SFC_Data\MDD\MDD_Data" --threshold 0.2 --atlas AAL
 ```
 
 <details><summary>代码输入参数说明</summary>

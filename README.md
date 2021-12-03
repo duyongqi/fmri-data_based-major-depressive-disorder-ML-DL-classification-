@@ -73,6 +73,7 @@ By organizing the pre-processed data into the corresponding grid file structure,
 进行自动特征整合，t test特征选择，SVM-RFE特征选择，SVM分类, Gridsearch寻找最佳参数，以及特征的生理解释的自动对应输出，测试结果的AUC图像的自动绘制。
 
 ## 代码用法
+
 ''' 
 python main.py SVM sfc/dfc "hc_dir" "mdd_dir" --threshold 0.2 --atlas AAL
 '''

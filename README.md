@@ -23,7 +23,7 @@
 用[BrainNet Viewer](https://www.nitrc.org/projects/bnv/)工具进行选择出来的特征的可视化
 
 ## 输入文件格式：
-对原始fMRI数据用DPABI工具进行处理后（包括脑区分割），用GRENTA工具进行SFC和DFC的提取，得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
+对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割），用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取，得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
 <details><summary>文件结构</summary>
 <p>
 
@@ -119,6 +119,8 @@ optional arguments:
 </p>
 </details>
 
+# 中间文件
+- 
 # 注意事项：
 1. main.py中实现了多进程，用了15核的CPU，在运行之前请将其更改为合适的个数，代码在
 

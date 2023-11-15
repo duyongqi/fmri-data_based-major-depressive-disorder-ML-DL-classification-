@@ -1,29 +1,32 @@
-# fmri data_based MDD classification
+# fmri data_based MDD classification (预处理用DPABI实现 Pretreatment is implemented with ![DPABI](https://github.com/Chaogan-Yan/DPABI)
 # 上传了系统文档 The system document was uploaded ！！！！！！！！！！！！
 
 将预处理后的功能磁共振数据组织成相应的文件结构，自动实现数据准备、数据分割、模型训练和结果可视化。
 Organize pre-processed FMRI data referring to the corresponding file structure, and then the code will automatically realize data preparation, data segmentation, model training, and result visualization
 
-注意在过程中为了防止程序中断需要重新运行程序花费的时间，在运行过程中会自动生成中间文件，这样即使中断了，上一步的处理结果也会以文件的形式保存下来，中间文件包括HC/MDD_splice_along_time, model等，参见[Intermediate file](##Intermediate file)   
-Note that to prevent program interruption which will lead to re-running the program, during the running process, intermediate files will be automatically generated. In this way, even if the process is interrupted, the results of the previous step will be saved in file form. Intermediate documents include: HC/MDD_splice_along_time, model, etc., see [Intermediate file](##Intermediate file)  
+注意在过程中为了防止程序中断需要重新运行程序花费的时间，在运行过程中会自动生成中间文件，这样即使中断了，上一步的处理结果也会以文件的形式保存下来，中间文件包括HC/MDD_splice_along_time, model等，参见[Intermediate file](##Intermediate_file)    
+Note that to prevent program interruption which will lead to re-running the program, during the running process, intermediate files will be automatically generated. In this way, even if the process is interrupted, the results of the previous step will be saved in file form. Intermediate documents include: HC/MDD_splice_along_time, model, etc., see [Intermediate file](##Intermediate_file)  
 
 
 ### IF THIS IS USEFUL FOR YOU, STAR FOR ME PLS! THKS!! :satisfied:
 
 # Content:
 - [Usage](#Usage)
-  - [输入文件格式](##输入文件格式)
-  - [代码格式](##代码结构)
-  - [代码用法](##代码用法)  
-  - [Intermediate file](##Intermediate file)   
-- [原理](#原理)
-- [注意事项](#注意事项)
+  - [Input File Format](##Input_file_format)
+  - [Code Format](##Code_format)
+  - [Code Usage](##Code_Usage)  
+  - [Intermediate file](##Intermediate_file)  
+- [Rationale](#Rationale)
+- [Notice](#Notice)
 
 - [Ref-paper](#Ref_paper)
 
 # Usage:
 基于fmri数据的ml&amp;dl方法疾病分类
-通过将预处理后的数据组织到相应的网格文件结构中，实现数据的集成、数据的自动编制、数据的自动划分、模型的训练和模型的可视化绘制
+Classification of diseases using ML and DL methods based on FMRI data
+
+通过将预处理后的数据组织到相应的文件中，自动实现数据的划分、模型的训练和模型的可视化绘制
+By organizing the pre-processed data into the corresponding files, the training of the data division model and the visualization of the model are realized automatically
 
 ## 输入文件格式：
 对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割）；

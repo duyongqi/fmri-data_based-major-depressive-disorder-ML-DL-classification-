@@ -1,4 +1,4 @@
-# fmri data_based MDD classification (预处理用DPABI实现 Pretreatment is implemented with ![DPABI](https://github.com/Chaogan-Yan/DPABI)
+# fmri data_based MDD classification (preprocessing is implemented with [DPABI](http://rfmri.org/dpabi))
 # 上传了系统文档 The system document was uploaded ！！！！！！！！！！！！
 
 将预处理后的功能磁共振数据组织成相应的文件结构，自动实现数据准备、数据分割、模型训练和结果可视化。

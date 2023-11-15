@@ -1,10 +1,12 @@
 # fmri data_based MDD classification
-# 上传了系统文档！！！！！！！！！！！！
-# The system document was uploaded ！！！！！！！！！！！！
+# 上传了系统文档 The system document was uploaded ！！！！！！！！！！！！
+
 将预处理后的功能磁共振数据组织成相应的文件结构，自动实现数据准备、数据分割、模型训练和结果可视化。
 Organize pre-processed FMRI data referring to the corresponding file structure, and then the code will automatically realize data preparation, data segmentation, model training, and result visualization
+
 注意在过程中为了防止程序中断需要重新运行程序花费的时间，在运行过程中会自动生成中间文件，这样即使中断了，上一步的处理结果也会以文件的形式保存下来，中间文件包括HC/MDD_splice_along_time, model等，参见[中间文件](##中间文件)  
 Note that to prevent program interruption which will lead to re-running the program, during the running process, intermediate files will be automatically generated. In this way, even if the process is interrupted, the results of the previous step will be saved in file form. Intermediate documents include: HC/MDD_splice_along_time, model, etc., see [Intermediate file](## Intermediate file)
+
 
 ### IF THIS IS USEFUL FOR YOU, STAR FOR ME PLS! THKS!! :satisfied:
 

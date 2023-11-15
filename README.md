@@ -1,5 +1,5 @@
-# fmri data_based MDD classification (preprocessing is implemented with [DPABI](http://rfmri.org/dpabi))
-# 上传了系统文档 The system document was uploaded ！！！！！！！！！！！！
+## fmri data_based MDD classification (preprocessing is implemented with [DPABI](http://rfmri.org/dpabi))
+## 上传了系统文档 The system document was uploaded ！！！！！！！！！！！！
 
 将预处理后的功能磁共振数据组织成相应的文件结构，自动实现数据准备、数据分割、模型训练和结果可视化。
 Organize pre-processed FMRI data referring to the corresponding file structure, and then the code will automatically realize data preparation, data segmentation, model training, and result visualization

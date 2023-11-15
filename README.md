@@ -32,7 +32,7 @@ Classification of diseases using ML and DL methods based on FMRI data
 
 By organizing the pre-processed data into the corresponding files, the training of the data division model and the visualization of the model are realized automatically
 
-## Input_File_Format：
+## Input File Format：
 对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割）；
 
 用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取；
@@ -93,7 +93,7 @@ By organizing the pre-processed data into the corresponding files, the training 
 </p>
 </details>
 
-## 代码结构:
+## Code Format:
 <!-- ```diff -->
 
 - anatomical.py
@@ -115,7 +115,7 @@ By organizing the pre-processed data into the corresponding files, the training 
 
 <!-- ``` -->
 
-## 代码用法:
+## Code Usage:
 
 ```python
 python main.py SVM sfc "SFC_Data\HC\HC_Data" "SFC_Data\MDD\MDD_Data" --threshold 0.2 --atlas AAL
@@ -146,10 +146,10 @@ optional arguments:
 </p>
 </details>
 
-## 中间文件
+## Intermediate file
 <!-- ```diff -->
 
-参考[原理](#原理)理解
+参考[Rationale](#Rationale)理解
 
 - HC/MDD_splice_alone_time
 
@@ -182,7 +182,7 @@ DFC相关结果图
 
 <!-- ``` -->
 
-# 原理：
+# Rationale)：
 - SFC数据准备
 ![SFC](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/SFC_data_preparation.jpg)
 - DFC数据准备
@@ -198,7 +198,7 @@ DFC相关结果图
 ![pipeline](https://github.com/duyongqi/fmri-data_based-major-depressive-disorder-ML-DL-classification-/blob/main/image/pipeline.svg)
 
 
-# 注意事项：
+# Notice：
 1. main.py中实现了多进程，用了15核的CPU，在运行之前请将其更改为合适的个数，代码在
 
 ```python

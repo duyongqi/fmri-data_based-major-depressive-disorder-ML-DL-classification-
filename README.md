@@ -34,8 +34,10 @@ By organizing the pre-processed data into the corresponding files, the training 
 
 ### Input File Format：
 对原始fMRI数据用[DPABI](http://rfmri.org/dpabi)工具进行处理后（包括脑区分割）；
+Raw fMRI data processed with the [DPABI](http://rfmri.org/dpabi) tool (addition with brain segmentation)
 
-用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC和DFC的提取；
+用[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full)工具进行SFC (static functional connection)和DFC (dynamic functional connection)的提取；
+[GRENTA](https://www.frontiersin.org/articles/10.3389/fnhum.2015.00386/full) tool was used to extract SFC (static functional connection) and DFC (dynamic functional connection) features.
 
 得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
 

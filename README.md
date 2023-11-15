@@ -43,23 +43,28 @@ Raw fMRI data processed with the [DPABI](http://rfmri.org/dpabi) tool (addition 
 
 得到每个被试的SFC和DFC矩阵,为index.mat文件格式，最终输入文件格式应该如下：(SFC中的mat文件是2维的，DFC中的mat文件是3维的，有一个维度是时间)
 
-The SFC and DFC matrix of each subject is obtained in the file format index.mat. The final input file format should be as follows: (mat file in SFC is 2-dimensional; the mat file in DFC is 3-dimensional, with one dimension referring to time.)
+The SFC and DFC matrix of each subject is obtained in the file format index.mat. The final input file format should be as follows: (mat file in SFC is 2-dimensional; the mat file in DFC is 3-dimensional, with one dimension of time.)
 
-<details><summary>文件结构</summary>
+<details><summary>文件结构 File Structures</summary>
 <p>
 
 参考本repo中的文件格式，有一些文件夹是生成的中间文件，最初始的输入文件格式是下面这样，主要是将SFC和DFC分开放，SFC/DFC中的HC和MDD分开放，为了能容下中间文件的更好的查看方式，注意HC_Data才是存放HC数据的地方，而不是HC；HC是存放HC这一类的总目录（包括HC数据和生成的中间文件）。
+
+For the file format in this repo, we list the initial input file structure as follows:
+
+and note that some folders are generated as intermediate files.
+
 - --SFC_Data
 
-----HC
+-- --HC
 
-------HC_Data
+--- ---HC_Data
 
---------0001.mat
+---- ----0001.mat
 
---------0002.mat
+---- ----0002.mat
 
---------0003.mat
+---- ----0003.mat
 
 
 ----MDD

@@ -54,53 +54,57 @@ For the file format in this repo, we list the initial input file structure as fo
 
 and note that some folders are generated as intermediate files.
 
-- --SFC_Data
+- SFC_Data
 
--- --HC
+  - HC
 
---- ---HC_Data
+    - HC_Data
 
----- ----0001.mat
+      - 0001.mat
 
----- ----0002.mat
+      - 0002.mat
 
----- ----0003.mat
+      - 0003.mat
+        
+    - Intermediate_HC_Data (generated in the running process)
 
+  - MDD
 
-----MDD
+    - MDD_Data
 
-------MDD_Data
+      - 0001.mat
 
---------0001.mat
+      - 0002.mat
 
---------0002.mat
+      - 0003.mat
+        
+    - Intermediate_MDD_Data (generated in the running process)
 
---------0003.mat
+- DFC_Data
 
+  - HC
 
-- --DFC_Data
+    - HC_Data
 
-----HC
+      - 0001.mat
 
-------HC_Data
+      - 0002.mat
 
---------0001.mat
+      - 0003.mat
+        
+    - Intermediate_HC_Data (generated in the running process)
 
---------0002.mat
+  - MDD
 
---------0003.mat
+    - MDD_Data
 
+      - 0001.mat
 
-----MDD
+      - 0002.mat
 
-------MDD_Data
-
---------0001.mat
-
---------0002.mat
-
---------0003.mat
-
+      - 0003.mat
+        
+    - Intermediate_MDD_Data (generated in the running process)
 </p>
 </details>
 
@@ -111,47 +115,55 @@ and note that some folders are generated as intermediate files.
 
 做特征选择之后，对选择出来的特征进行生理解释，也就是进行区域的对应，找出选择出来的特征是哪些区域之间的功能连接)
 
+After feature selection, physiological interpretation is carried out on the selected features, that is, regions related to the selected functional connection feature will be printed out)
+
 - draw.py 
 
-训练和测试结束之后，绘制gridsearch的过程，绘制AUC 
+训练和测试结束之后，绘制gridsearch的过程，绘制AUC曲线
+
+After training and testing, draw the grid-search process and draw the AUC
 
 - svm.py 
 
 分类模型pipeline
 
+Classification model pipeline
+
 - **main.py**  
 
 主函数，输入HC和MDD文件的路径，FC类别，模型种类(SVM/LSTM);
-进行自动特征整合，t test特征选择，SVM-RFE特征选择，SVM分类, Gridsearch寻找最佳参数，以及特征的生理解释的自动对应输出，测试结果的AUC图像的自动绘制。
+进行自动特征处理，t test特征选择，SVM-RFE特征选择，SVM分类, Gridsearch寻找最佳参数，以及特征的生理解释的自动对应输出，测试结果的AUC图像的自动绘制。
+
+The main function, Input: HC and MDD file path, SFC/DFC, model class (SVM/LSTM); Perform automatic feature processing, t-test feature selection, SVM-RFE feature selection, SVM classification, Grid search to find the best hyperparameters, as well as automatic print physiological interpretation of features (regions of the brain), automatic rendering of AUC images of test results
 
 <!-- ``` -->
 
 ### Code Usage:
 
 ```python
-python main.py SVM sfc "SFC_Data\HC\HC_Data" "SFC_Data\MDD\MDD_Data" --threshold 0.2 --atlas AAL
+python main.py SVM sfc "SFC_Data\HC\HC_Data" "SFC_Data\MDD\MDD_Data" --Threshold 0.2 --atlas AAL
 ```
 
-<details><summary>代码输入参数说明</summary>
+<details><summary>代码输入参数说明 function input parameter descriptions</summary>
 <p>
 
 ```python
 usage: main.py [-h] [--threshold THRESHOLD] [--atlas ATLAS] {SVM,LSTM,oLSTM} {DFC,SFC} hc mdd 
 
-预处理之后数据的抑郁症诊断，可以选择三种方法，一种是DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM
+预处理之后数据的抑郁症诊断，可以选择三种方法，一种是SFC/DFC+特征选择SVM，一种是DFC+LSTM，一种是直接LSTM
+
+Three methods can be selected for the diagnosis of depression after data pretreatment, one is SFC/DFC+ feature selection SVM, the other is DFC+LSTM, and the other is direct LSTM
 
 positional arguments:
-  {SVM,LSTM,oLSTM}      分类方法类别
-  {DFC,SFC}             功能连接类别
-  hc                    正常组FC目录
-  mdd                   MDD组FC目录
+  {SVM,LSTM,oLSTM}      分类方法类别  Classification method
+  {DFC,SFC}             功能连接类别  Functional Connectivity feature categories
+  hc                    正常组FC目录  File path of healthy control groups (HC)
+  mdd                   MDD组FC目录   File path of Major Depression Disorder groups (HC)
 
 optional arguments:
-  -h, --help            帮助
-  --threshold THRESHOLD, -t THRESHOLD
-                        t test的阈值
-  --atlas ATLAS, -a ATLAS
-                        选择使用的分割图，注意要和输入的对应的地址中数据使用的地址一致，默认是AAL90
+  -h, --help                                  帮助  HELP
+  --threshold THRESHOLD, -t THRESHOLD         t test的阈值   t-test threshold
+  --atlas ATLAS, -a ATLAS                     选择使用的分割图，注意要和输入的对应的地址中数据使用的地址一致，默认是AAL90  Select the brain segmentation atlas to use and be sure to match this option to the atlas used in the [DPABI](http://rfmri.org/dpabi). The default is AAL90.
 ```
 
 </p>
